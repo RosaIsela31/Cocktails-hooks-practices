@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Header from './Header';
+import Formulario from './Formulario';
 
 const Container = () => {
   return ( 
-    <div>
-      hi
-    </div>
+    <Fragment>
+      <Header />
+      <div className='container mt-5'>
+        <div className='row'>
+          <Formulario />
+        </div>
+      </div>
+    </Fragment>
    );
 }
  
