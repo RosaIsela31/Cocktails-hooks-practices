@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Formulario from './Formulario';
 import CategoriasProvider from '../context/CategoriasContext';
+import ListaRecetas from './ListaRecetas';
 
 import RecetasProvider from '../context/RecetasContext';
 
@@ -14,6 +15,7 @@ const Container = () => {
           <div className='row'>
             <Formulario />
           </div>
+          <ListaRecetas />
         </div>
       </RecetasProvider>
     </CategoriasProvider>

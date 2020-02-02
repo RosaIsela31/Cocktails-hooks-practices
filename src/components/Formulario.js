@@ -10,14 +10,14 @@ const Formulario = () => {
   });
 
   const { categorias } = useContext(CategoriasContext);  
-  const { buscarRecetas } = useContext(RecetasContext);
+  const { buscarRecetas, guardarConsultar } = useContext(RecetasContext);
 
   // Función para leer los contenidos 
 
   const obtenerDatosReceta = e => {
     guardarBusqueda({
       ...busqueda,
-      [e.target.name] : [e.target.value]
+      [e.target.name] : e.target.value
     })
 
   };
@@ -28,7 +28,8 @@ const Formulario = () => {
       onSubmit={e => {
           e.preventDefault();
           buscarRecetas(busqueda)
-      }}
+          guardarConsultar(true)
+      }} 
     >
       <fieldset className='text-center'>
         <legend>Busca bebidas por Categoría o Ingrediente</legend>
@@ -48,6 +49,7 @@ const Formulario = () => {
           <select 
             className='form-control'
             name='categoria'
+            onChange={obtenerDatosReceta}
           >
             <option value=''>-- Selecciona Categoría --</option>
             {categorias.map(categoria => (
@@ -65,7 +67,6 @@ const Formulario = () => {
             type='submit'
             className='btn btn-block btn-primary' 
             value='Buscar Bebidas'
-            onChange={obtenerDatosReceta}
           />
 
         </div>
